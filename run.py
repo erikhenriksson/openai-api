@@ -19,8 +19,8 @@ system_message = [
 ]
 
 
-def get_qa(input_text):
-    prompt = f"Respond in the json format: {{'response': qa_classification}}\nText: {input_text}\nQuestion or answer (question, answer):"
+def get_response(input_text):
+    prompt = f"Respond in the json format: {{'response': classification}}\nText: {input_text}\nQuestion or answer (question, answer):"
     response = openai.ChatCompletion.create(
         model=model,
         messages=system_message + [{"role": "user", "content": prompt}],
@@ -42,7 +42,7 @@ with open(input_file_path, "r") as input_file, open(
     for line in input_file:
         text = line.strip()
         if text:
-            examples.append(get_qa(text))
+            examples.append(get_response(text))
     output_file.write(json.dumps(examples, ensure_ascii=False))
 
     exit()
