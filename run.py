@@ -27,7 +27,7 @@ def get_response(input_text):
         max_tokens=40,
         n=1,
         stop=None,
-        temperature=0.5,
+        temperature=1,
     )
     response_text = response.choices[0].message["content"].strip()
 
@@ -44,5 +44,3 @@ with open(input_file_path, "r") as input_file, open(
         if text:
             examples.append(get_response(text))
     output_file.write(json.dumps(examples, ensure_ascii=False))
-
-    exit()
