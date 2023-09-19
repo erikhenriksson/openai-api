@@ -2,8 +2,8 @@ import json
 import openai
 import re
 
-model = "gpt-3.5-turbo-0613"
-openai.api_key = "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"
+model = "gpt-3.5"
+openai.api_key = "API KEY"
 input_file_path = "input_texts.txt"
 output_file_path = "output_responses.json"
 
